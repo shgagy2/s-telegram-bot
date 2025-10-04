@@ -1,0 +1,21 @@
+{
+  "name": "school-telegram-bot",
+  "version": "1.0.0",
+  "description": "بوت تيليجرام لإدارة المدرسة بنظام صلاحيات متعدد المستويات",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": ["telegram", "bot", "school", "management"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "telegraf": "^4.12.2",
+    "mongoose": "^7.0.0",
+    "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
