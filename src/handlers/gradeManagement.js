@@ -214,7 +214,7 @@ const selectStudentForGrades = async (ctx, student) => {
   } else if (ctx.session.gradeMonth === 'midyear') {
     periodName = 'نصف السنة';
   } else if (ctx.session.gradeMonth === 'endyear') {
-    periodName = 'آخر السنة';
+    periodName = 'السعي السنوي';
   }
 
   await ctx.reply(
@@ -446,7 +446,7 @@ const displayStudentGrades = async (ctx, student) => {
   }
   
   if (student.grades.semester2.endYear && student.grades.semester2.endYear.size > 0) {
-    message += `🎓 آخر السنة:\n`;
+    message += `🎓 السعي السنوي:\n`;
     message += formatGradesDisplay(student.grades.semester2.endYear);
     message += `\n`;
   }

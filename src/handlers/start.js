@@ -1,5 +1,22 @@
 const { mainKeyboard } = require('../utils/keyboards');
 const Admin = require('../models/Admin');
+const { Markup } = require('telegraf');
+
+// لوحة المفاتيح الدائمة
+const getPersistentKeyboard = (isAdmin) => {
+  const buttons = [
+    [
+      Markup.button.text('🏠 القائمة الرئيسية'),
+      Markup.button.text('🔍 بحث عن طالب')
+    ]
+  ];
+  
+  if (isAdmin) {
+    buttons.push([Markup.button.text('⚙️ لوحة الإدارة')]);
+  }
+  
+  return Markup.keyboard(buttons).resize().persistent();
+};
 
 const startHandler = async (ctx) => {
   const username = ctx.from?.username?.toLowerCase();
@@ -39,6 +56,12 @@ const startHandler = async (ctx) => {
     parse_mode: 'Markdown',
     ...mainKeyboard(isAdmin)
   });
+  
+  // إرسال لوحة المفاتيح الدائمة
+  await ctx.reply(
+    '💡 استخدم الأزرار أدناه للتنقل السريع:',
+    getPersistentKeyboard(isAdmin)
+  );
 };
 
 const backToMainHandler = async (ctx) => {

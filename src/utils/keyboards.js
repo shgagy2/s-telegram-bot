@@ -105,7 +105,7 @@ const monthKeyboard = (semester) => {
   if (semester === 'sem1') {
     buttons.push([Markup.button.callback('📈 نصف السنة', `midyear_${semester}`)]);
   } if (semester === 'sem2') {
-    buttons.push([Markup.button.callback('🎓 آخر السنة', `endyear_${semester}`)]);
+    buttons.push([Markup.button.callback('🎓 السعي السنوي', `endyear_${semester}`)]);
   }
   
   buttons.push([Markup.button.callback('🔙 رجوع', 'manage_grades')]);
